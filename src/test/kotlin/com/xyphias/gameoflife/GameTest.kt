@@ -3,6 +3,7 @@ package com.xyphias.gameoflife
 import org.junit.jupiter.api.Test
 import strikt.api.expectThat
 import strikt.assertions.contains
+import strikt.assertions.doesNotContain
 
 class GameTest {
     @Test
@@ -34,5 +35,14 @@ class GameTest {
         )
 
         expectThat(grid.next().liveCells).contains(aCell)
+    }
+
+    @Test
+    fun `a live cell with fewer than two neighbours dies`() {
+        val aCell = Cell(x = 1, y = 0)
+
+        val grid = Grid(liveCells = setOf(aCell))
+
+        expectThat(grid.next().liveCells).doesNotContain(aCell)
     }
 }
