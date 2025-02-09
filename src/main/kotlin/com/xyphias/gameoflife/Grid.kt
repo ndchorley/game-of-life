@@ -1,0 +1,18 @@
+package com.xyphias.gameoflife
+ 
+class Grid(val liveCells: Set<Cell>) {
+    fun next(): Grid {
+        val survivors = liveCells.withNeighbourCount(2)  
+        
+        return Grid(survivors)
+    }
+
+    private fun Set<Cell>.withNeighbourCount(count: Int): Set<Cell> =
+        this.filter { cell -> neighboursOf(cell).size == count }.toSet()
+
+    private fun neighboursOf(cell: Cell): Set<Cell> = 
+        cell
+            .potentialNeighbours()
+            .filter { potentialNeighbour -> liveCells.contains(potentialNeighbour) }
+            .toSet()
+}
