@@ -13,6 +13,11 @@ class Grid(val liveCells: Set<Cell>) {
     private fun neighboursOf(cell: Cell): Set<Cell> = 
         cell
             .potentialNeighbours()
+            .thoseThatAreLiving()
+            .toSet()
+    
+    private fun Set<Cell>.thoseThatAreLiving(): Set<Cell> =
+        this
             .filter { potentialNeighbour -> liveCells.contains(potentialNeighbour) }
             .toSet()
 }
