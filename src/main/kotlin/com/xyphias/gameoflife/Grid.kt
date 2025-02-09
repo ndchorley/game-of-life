@@ -2,7 +2,8 @@ package com.xyphias.gameoflife
  
 class Grid(val liveCells: Set<Cell>) {
     fun next(): Grid {
-        val survivors = liveCells.withNeighbourCount(2)  
+        val survivors = 
+            liveCells.withNeighbourCount(2).plus(liveCells.withNeighbourCount(3))
         
         return Grid(survivors)
     }
