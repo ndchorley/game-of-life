@@ -62,4 +62,19 @@ class GameTest {
 
         expectThat(grid.next().liveCells).doesNotContain(aCell)
     }
+    
+    @Test
+    fun `a dead cell with exactly three live neighbours comes to life`() {
+        val theDeadCell = Cell(x = 1, y = 1)
+        
+        val neighboursOfTheDeadCell = setOf(
+            Cell(theDeadCell.x, theDeadCell.y - 1),
+            Cell(theDeadCell.x + 1, theDeadCell.y),
+            Cell(theDeadCell.x + 1, theDeadCell.y - 1)
+        )
+        
+        val grid = Grid(sideLength = 3, liveCells = neighboursOfTheDeadCell)
+        
+        expectThat(grid.next().liveCells).contains(theDeadCell)
+    }
 }
