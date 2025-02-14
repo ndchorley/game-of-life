@@ -32,11 +32,11 @@ class Grid(val liveCells: Set<Cell>, val sideLength: Int = 3) {
             .withExactlyThreeLiveNeighbours()
 
     private fun allCells(): Set<Cell> =
-        (1 until sideLength).map { x ->
+        (1 until sideLength).flatMap { x ->
             (1 until sideLength).map { y ->
                 Cell(x, y)
             }
-        }.flatten().toSet()
+        }.toSet()
 
     private fun Set<Cell>.withExactlyThreeLiveNeighbours(): Set<Cell> =
         withNeighbourCount(3)
