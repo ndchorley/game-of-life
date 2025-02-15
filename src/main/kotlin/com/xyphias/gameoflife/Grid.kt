@@ -17,11 +17,6 @@ class Grid(val liveCells: Set<Cell>, val sideLength: Int = 3) {
             }
             .toSet()
 
-    private fun Set<Cell>.withNeighbourCount(count: Int): Set<Cell> =
-        this
-            .filter { cell -> liveNeighboursOf(cell).size == count }
-            .toSet()
-
     private fun liveNeighboursOf(cell: Cell): Set<Cell> =
         cell
             .allNeighbours()
@@ -46,7 +41,9 @@ class Grid(val liveCells: Set<Cell>, val sideLength: Int = 3) {
         }.toSet()
 
     private fun Set<Cell>.withExactlyThreeLiveNeighbours(): Set<Cell> =
-        withNeighbourCount(3)
+        this
+            .filter { cell -> liveNeighboursOf(cell).count() == 3 }
+            .toSet()
 
     private fun Set<Cell>.thatAreNotAlive(): Set<Cell> =
         this.filterNot { cell -> liveCells.contains(cell) }.toSet()
