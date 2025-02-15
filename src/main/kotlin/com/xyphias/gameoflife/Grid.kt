@@ -2,13 +2,20 @@ package com.xyphias.gameoflife
  
 class Grid(val liveCells: Set<Cell>, val sideLength: Int = 3) {
     fun next(): Grid {
-        val survivors =
-            liveCells.withNeighbourCount(2) + liveCells.withNeighbourCount(3)
-
-        val nextLiveCells = survivors + cellsThatComeToLife()
+        val nextLiveCells =
+            liveCells.thoseWithTwoOrThreeLiveNeighbours() + cellsThatComeToLife()
 
         return Grid(nextLiveCells)
     }
+
+    private fun Set<Cell>.thoseWithTwoOrThreeLiveNeighbours(): Set<Cell> = 
+        this.
+            filter { cell -> 
+                val neighbours = neighboursOf(cell)
+                
+                neighbours.count() == 2 || neighbours.count() == 3
+            }
+            .toSet()
 
     private fun Set<Cell>.withNeighbourCount(count: Int): Set<Cell> =
         this
@@ -20,7 +27,7 @@ class Grid(val liveCells: Set<Cell>, val sideLength: Int = 3) {
             .potentialNeighbours()
             .thoseThatAreLiving()
             .toSet()
-    
+
     private fun Set<Cell>.thoseThatAreLiving(): Set<Cell> =
         this
             .filter { potentialNeighbour -> liveCells.contains(potentialNeighbour) }
