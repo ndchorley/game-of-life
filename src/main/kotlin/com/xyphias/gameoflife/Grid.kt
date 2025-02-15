@@ -1,11 +1,11 @@
 package com.xyphias.gameoflife
  
-class Grid(val liveCells: Set<Cell>, val sideLength: Int = 3) {
+class Grid(val liveCells: Set<Cell>, val sideLength: Int) {
     fun next(): Grid {
         val nextLiveCells =
             liveCells.thoseWithTwoOrThreeLiveNeighbours() + cellsThatComeToLife()
 
-        return Grid(nextLiveCells)
+        return Grid(nextLiveCells, sideLength)
     }
 
     private fun Set<Cell>.thoseWithTwoOrThreeLiveNeighbours(): Set<Cell> = 
