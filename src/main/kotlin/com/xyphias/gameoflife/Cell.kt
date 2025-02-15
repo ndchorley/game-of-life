@@ -1,7 +1,7 @@
 package com.xyphias.gameoflife
 
 data class Cell(val x: Int, val y: Int) {
-    fun potentialNeighbours(): Set<Cell> = 
+    fun allNeighbours(): Set<Cell> = 
         setOf(
             Cell(x - 1, y),
             Cell(x + 1, y),

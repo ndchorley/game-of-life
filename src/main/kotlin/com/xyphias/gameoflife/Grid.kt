@@ -24,7 +24,7 @@ class Grid(val liveCells: Set<Cell>, val sideLength: Int = 3) {
 
     private fun neighboursOf(cell: Cell): Set<Cell> =
         cell
-            .potentialNeighbours()
+            .allNeighbours()
             .thoseThatAreLiving()
             .toSet()
 
