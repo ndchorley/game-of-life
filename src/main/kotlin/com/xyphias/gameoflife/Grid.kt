@@ -25,7 +25,7 @@ class Grid(val liveCells: Set<Cell>, val sideLength: Int) {
 
     private fun Set<Cell>.thoseThatAreLive(): Set<Cell> =
         this
-            .filter { neighbour -> liveCells.contains(neighbour) }
+            .filter { cell -> liveCells.contains(cell) }
             .toSet()
 
     private fun cellsThatComeToLife(): Set<Cell> =
