@@ -20,10 +20,10 @@ class Grid(val liveCells: Set<Cell>, val sideLength: Int) {
     private fun liveNeighboursOf(cell: Cell): Set<Cell> =
         cell
             .allNeighbours()
-            .thoseThatAreLiving()
+            .thoseThatAreLive()
             .toSet()
 
-    private fun Set<Cell>.thoseThatAreLiving(): Set<Cell> =
+    private fun Set<Cell>.thoseThatAreLive(): Set<Cell> =
         this
             .filter { neighbour -> liveCells.contains(neighbour) }
             .toSet()
