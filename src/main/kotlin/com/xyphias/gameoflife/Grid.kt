@@ -46,5 +46,7 @@ class Grid(val liveCells: Set<Cell>, val sideLength: Int) {
             .toSet()
 
     private fun Set<Cell>.thoseThatAreDead(): Set<Cell> =
-        this.filterNot { cell -> liveCells.contains(cell) }.toSet()
+        this
+            .filterNot { cell -> liveCells.contains(cell) }
+            .toSet()
 }
