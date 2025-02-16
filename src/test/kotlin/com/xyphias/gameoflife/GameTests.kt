@@ -5,7 +5,7 @@ import strikt.api.expectThat
 import strikt.assertions.contains
 import strikt.assertions.doesNotContain
 
-class GameTest {
+class GameTests {
     @Test
     fun `a live cell with two neighbours lives`() {
         val aCell = Cell(x = 1, y = 0)
