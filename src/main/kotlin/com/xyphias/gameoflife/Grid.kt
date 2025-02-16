@@ -30,7 +30,7 @@ class Grid(val liveCells: Set<Cell>, val sideLength: Int) {
 
     private fun cellsThatComeToLife(): Set<Cell> =
         allCells()
-            .thatAreNotAlive()
+            .thoseThatAreDead()
             .withExactlyThreeLiveNeighbours()
 
     private fun allCells(): Set<Cell> =
@@ -45,6 +45,6 @@ class Grid(val liveCells: Set<Cell>, val sideLength: Int) {
             .filter { cell -> liveNeighboursOf(cell).count() == 3 }
             .toSet()
 
-    private fun Set<Cell>.thatAreNotAlive(): Set<Cell> =
+    private fun Set<Cell>.thoseThatAreDead(): Set<Cell> =
         this.filterNot { cell -> liveCells.contains(cell) }.toSet()
 }
