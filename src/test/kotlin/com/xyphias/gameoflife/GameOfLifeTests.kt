@@ -5,7 +5,9 @@ import strikt.api.expectThat
 import strikt.assertions.contains
 import strikt.assertions.doesNotContain
 
-class GameTests {
+class GameOfLifeTests {
+    private val gameOfLife = GameOfLife()
+    
     @Test
     fun `a live cell with two neighbours lives`() {
         val aCell = Cell(x = 1, y = 0)
@@ -18,8 +20,9 @@ class GameTests {
                 ),
             sideLength = 3
         )
+        gameOfLife.newGrid(grid)
         
-        val nextGrid = grid.next()
+        val nextGrid = gameOfLife.nextGrid()
         
         expectThat(nextGrid.liveCells).contains(aCell)
     }
@@ -37,8 +40,9 @@ class GameTests {
                 ),
             sideLength = 3
         )
+        gameOfLife.newGrid(grid)
 
-        val nextGrid = grid.next()
+        val nextGrid = gameOfLife.nextGrid()
         
         expectThat(nextGrid.liveCells).contains(aCell)
     }
@@ -47,8 +51,9 @@ class GameTests {
     fun `a live cell with fewer than two neighbours dies`() {
         val aCell = Cell(x = 1, y = 0)
         val grid = Grid(liveCells = setOf(aCell), sideLength = 3)
+        gameOfLife.newGrid(grid)
 
-        val nextGrid = grid.next()
+        val nextGrid = gameOfLife.nextGrid()
         
         expectThat(nextGrid.liveCells).doesNotContain(aCell)
     }
@@ -67,8 +72,9 @@ class GameTests {
                 ),
             sideLength = 3
         )
+        gameOfLife.newGrid(grid)
 
-        val nextGrid = grid.next()
+        val nextGrid = gameOfLife.nextGrid()
         
         expectThat(nextGrid.liveCells).doesNotContain(aCell)
     }
@@ -83,8 +89,9 @@ class GameTests {
                 Cell(theDeadCell.x + 1, theDeadCell.y - 1)
             )
         val grid = Grid(sideLength = 3, liveCells = neighboursOfTheDeadCell)
+        gameOfLife.newGrid(grid)
 
-        val nextGrid = grid.next()
+        val nextGrid = gameOfLife.nextGrid()
         
         expectThat(nextGrid.liveCells).contains(theDeadCell)
     }
