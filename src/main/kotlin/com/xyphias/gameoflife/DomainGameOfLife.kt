@@ -1,6 +1,6 @@
 package com.xyphias.gameoflife
 
-class DomainGameOfLife : IGameOfLife {
+class DomainGameOfLife : GameOfLife {
     private var grid: Grid? = null
     
     override fun newGrid(grid: Grid) {

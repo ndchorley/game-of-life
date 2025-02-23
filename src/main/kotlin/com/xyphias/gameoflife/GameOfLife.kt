@@ -1,6 +1,6 @@
 package com.xyphias.gameoflife
 
-interface IGameOfLife {
+interface GameOfLife {
     fun newGrid(grid: Grid)
     fun nextGrid(): Grid
 }
