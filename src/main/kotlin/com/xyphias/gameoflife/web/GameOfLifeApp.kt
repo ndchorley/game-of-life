@@ -1,5 +1,7 @@
-package com.xyphias.gameoflife
+package com.xyphias.gameoflife.web
 
+import com.xyphias.gameoflife.DomainGameOfLife
+import com.xyphias.gameoflife.Grid
 import org.http4k.core.Body
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method.GET

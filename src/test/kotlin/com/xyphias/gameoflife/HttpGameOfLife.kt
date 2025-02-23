@@ -1,5 +1,6 @@
 package com.xyphias.gameoflife
 
+import com.xyphias.gameoflife.web.gridLens
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method.POST
 import org.http4k.core.Request

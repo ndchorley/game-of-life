@@ -1,4 +1,4 @@
-package com.xyphias.gameoflife
+package com.xyphias.gameoflife.web
 
 import org.http4k.template.ViewModel
 
