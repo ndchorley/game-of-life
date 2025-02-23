@@ -1,13 +1,13 @@
 package com.xyphias.gameoflife
 
-class GameOfLife {
+class GameOfLife : IGameOfLife {
     private var grid: Grid? = null
     
-    fun newGrid(grid: Grid) {
+    override fun newGrid(grid: Grid) {
         this.grid = grid
     }
 
-    fun nextGrid(): Grid {
+    override fun nextGrid(): Grid {
         grid = grid!!.next()
         
         return grid!!

@@ -7,7 +7,7 @@ import strikt.assertions.doesNotContain
 import strikt.assertions.isEqualTo
 
 interface GameOfLifeContract {
-    val gameOfLife: GameOfLife
+    val gameOfLife: IGameOfLife
 
     @Test
     fun `a live cell with two neighbours lives`() {
