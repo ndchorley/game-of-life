@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test
 import strikt.api.expectThat
 import strikt.assertions.contains
 import strikt.assertions.doesNotContain
+import strikt.assertions.isEqualTo
 
 class GameOfLifeTests {
     private val gameOfLife = GameOfLife()
@@ -94,5 +95,22 @@ class GameOfLifeTests {
         val nextGrid = gameOfLife.nextGrid()
         
         expectThat(nextGrid.liveCells).contains(theDeadCell)
+    }
+    
+    @Test
+    fun `a blinker oscillates with period 2`() {
+        val aRowOfCells =
+            setOf(Cell(x = 1, y = 2), Cell(x = 2, y = 2), Cell(x = 3, y = 2))
+        gameOfLife.newGrid(Grid(aRowOfCells, sideLength = 5))
+        
+        val firstGeneration = gameOfLife.nextGrid()
+        
+        val aColumnOfCells =
+            setOf(Cell(x = 2, y = 1), Cell(x = 2, y = 2), Cell(x = 2, y = 3))
+        expectThat(firstGeneration.liveCells).isEqualTo(aColumnOfCells)
+        
+        val secondGeneration = gameOfLife.nextGrid()
+        
+        expectThat(secondGeneration.liveCells).isEqualTo(aRowOfCells)
     }
 }

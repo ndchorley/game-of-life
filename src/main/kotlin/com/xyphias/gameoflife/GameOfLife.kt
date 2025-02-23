@@ -8,6 +8,8 @@ class GameOfLife {
     }
 
     fun nextGrid(): Grid {
-        return grid!!.next()
+        grid = grid!!.next()
+        
+        return grid!!
     }
 }
