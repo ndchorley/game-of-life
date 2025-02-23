@@ -14,10 +14,12 @@ dependencies {
     implementation("org.http4k:http4k-core")
     implementation("org.http4k:http4k-format-moshi")
     implementation("org.http4k:http4k-server-jetty")
+    implementation("org.http4k:http4k-template-thymeleaf")
     
     testImplementation(platform("org.junit:junit-bom:5.11.4"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("io.strikt:strikt-core:0.35.1")
+    testImplementation("org.http4k:http4k-testing-approval")
 }
 
 tasks.test {
