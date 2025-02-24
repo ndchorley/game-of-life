@@ -12,7 +12,7 @@ import org.http4k.core.Status.Companion.OK
 import org.http4k.format.Moshi.auto
 import org.http4k.routing.bind
 import org.http4k.routing.routes
-import org.http4k.template.ThymeleafTemplates
+import org.http4k.template.HandlebarsTemplates
 
 val gridLens = Body.auto<Grid>().toLens()
 
@@ -50,5 +50,5 @@ class GameOfLifeApp : HttpHandler {
         return responseWithGrid
     }
     
-    private val templateRenderer = ThymeleafTemplates().CachingClasspath()
+    private val templateRenderer = HandlebarsTemplates().CachingClasspath()
 }
