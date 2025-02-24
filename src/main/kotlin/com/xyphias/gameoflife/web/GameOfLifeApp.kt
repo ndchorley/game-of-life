@@ -19,11 +19,12 @@ val gridLens = Body.auto<Grid>().toLens()
 class GameOfLifeApp : HttpHandler {
     private val game = DomainGameOfLife()
     
-    private val routes = routes(
-        "/" bind GET to ::homePage,
-        "/new" bind POST to ::newGrid,
-        "/next" bind POST to ::nextGrid
-    )
+    private val routes = 
+        routes(
+            "/" bind GET to ::homePage,
+            "/new" bind POST to ::newGrid,
+            "/next" bind POST to ::nextGrid
+        )
 
     override fun invoke(request: Request): Response = routes(request)
 
