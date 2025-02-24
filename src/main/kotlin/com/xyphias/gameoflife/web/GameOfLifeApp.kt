@@ -28,7 +28,7 @@ class GameOfLifeApp : HttpHandler {
     override fun invoke(request: Request): Response = routes(request)
 
     private fun homePage(request: Request): Response {
-        val view = templateRenderer(HomePageView)
+        val view = renderTemplate(HomePageView)
         
         return Response(OK).body(view)
     }
@@ -50,5 +50,5 @@ class GameOfLifeApp : HttpHandler {
         return responseWithGrid
     }
     
-    private val templateRenderer = HandlebarsTemplates().CachingClasspath()
+    private val renderTemplate = HandlebarsTemplates().CachingClasspath()
 }
