@@ -1,6 +1,5 @@
-package com.xyphias.gameoflife
+package com.xyphias.gameoflife.web
 
-import com.xyphias.gameoflife.web.GameOfLifeApp
 import org.http4k.core.Method.GET
 import org.http4k.core.Request
 import org.http4k.testing.ApprovalTest
