@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Conway's Game of Life</h1>
-    
+
     <div>
         <button id="next" type="submit">Next generation</button>
     </div>
