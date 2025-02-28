@@ -48,3 +48,34 @@ initialGrid = {
 }
 
 drawGrid(initialGrid);
+
+newGridRequest =
+    new Request(
+        "http://localhost:8080/new",
+        {method: "POST", body: JSON.stringify(initialGrid)}
+    );
+
+fetch(newGridRequest).then(response => null);
+
+document.getElementById("next")
+    .addEventListener("click", _ => {
+        nextGridRequest =
+            new Request(
+                "http://localhost:8080/next",
+                {method: "POST"}
+            );
+        
+        fetch(nextGridRequest)
+            .then(respose => respose.blob())
+            .then(blob => blob.text())
+            .then(gridJson => {
+                canvas = document.getElementById("canvas");
+                context = canvas.getContext("2d");
+                context.clearRect(0, 0, gridSideLengthPixels, gridSideLengthPixels);
+                
+                drawEmptyGrid();
+                
+                grid = JSON.parse(gridJson);
+                drawGrid(grid);
+            });
+    });
