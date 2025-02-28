@@ -42,6 +42,4 @@ initialState = {
     liveCells: [{x: 4, y: 5}, {x: 5, y: 5}, {x: 6, y: 5}]
 }
 
-drawLiveCellAt(initialState.liveCells[0]);
-drawLiveCellAt(initialState.liveCells[1]);
-drawLiveCellAt(initialState.liveCells[2]);
+initialState.liveCells.forEach(coordinates => drawLiveCellAt(coordinates));
