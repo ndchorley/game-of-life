@@ -9,6 +9,7 @@
 
     <div>
         <button id="start" type="submit">Start</button>
+        <button id="stop" type="submit">Stop</button>
     </div>
 
     <canvas id="canvas" width="500" height="500"></canvas>
