@@ -79,5 +79,5 @@ newGridRequest =
 
 fetch(newGridRequest).then(response => null);
 
-document.getElementById("next")
-    .addEventListener("click", _ => updateCanvas());
+document.getElementById("start")
+    .addEventListener("click", _ => setInterval(updateCanvas, 400));
