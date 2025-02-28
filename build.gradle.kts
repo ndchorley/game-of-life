@@ -20,6 +20,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("io.strikt:strikt-core:0.35.1")
     testImplementation("org.http4k:http4k-testing-approval")
+    testImplementation("org.http4k:http4k-testing-strikt")
 }
 
 tasks.test {

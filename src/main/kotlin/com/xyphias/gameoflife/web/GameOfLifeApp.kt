@@ -10,8 +10,10 @@ import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.OK
 import org.http4k.format.Moshi.auto
+import org.http4k.routing.ResourceLoader.Companion.Classpath
 import org.http4k.routing.bind
 import org.http4k.routing.routes
+import org.http4k.routing.static
 import org.http4k.template.HandlebarsTemplates
 
 val gridLens = Body.auto<Grid>().toLens()
@@ -22,6 +24,7 @@ class GameOfLifeApp : HttpHandler {
     private val routes = 
         routes(
             "/" bind GET to ::homePage,
+            "/static" bind static(Classpath("/com/xyphias/gameoflife/static")),
             "/new" bind POST to ::newGrid,
             "/next" bind POST to ::nextGrid
         )
