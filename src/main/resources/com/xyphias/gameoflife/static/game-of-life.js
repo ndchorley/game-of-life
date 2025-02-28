@@ -35,11 +35,16 @@ function drawLiveCellAt(coordinates) {
     context.fillRect(startX, startY, cellSize, cellSize);
 }
 
+function drawGrid(grid) {
+    grid.liveCells
+        .forEach(coordinates => drawLiveCellAt(coordinates));
+}
+
 drawEmptyGrid();
 
-initialState = {
+initialGrid = {
     sideLength: gridSize,
     liveCells: [{x: 4, y: 5}, {x: 5, y: 5}, {x: 6, y: 5}]
 }
 
-initialState.liveCells.forEach(coordinates => drawLiveCellAt(coordinates));
+drawGrid(initialGrid);
