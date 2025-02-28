@@ -24,15 +24,19 @@
             context.stroke();
         }
 
-        canvas = document.getElementById("canvas");
-        context = canvas.getContext("2d");
+        function drawGrid() {
+            canvas = document.getElementById("canvas");
+            context = canvas.getContext("2d");
 
-        context.strokeRect(0, 0, gridSideLengthPixels, gridSideLengthPixels);
+            context.strokeRect(0, 0, gridSideLengthPixels, gridSideLengthPixels);
 
-        context.beginPath();
-        ticks = [50, 100, 150, 200, 250, 300, 350, 400, 450];
-        ticks.forEach(x => drawVerticalLine(context, x));
-        ticks.forEach(y => drawHorizontalLine(context, y));
+            context.beginPath();
+            ticks = [50, 100, 150, 200, 250, 300, 350, 400, 450];
+            ticks.forEach(x => drawVerticalLine(context, x));
+            ticks.forEach(y => drawHorizontalLine(context, y));
+        }
+
+        drawGrid();
     </script>
 </body>
 </html>
