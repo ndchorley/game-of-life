@@ -4,7 +4,7 @@ const cellSize = gridSideLengthPixels / gridSize;
 
 const blinker = {
     sideLength: gridSize,
-    liveCells: [{x: 4, y: 5}, {x: 5, y: 5}, {x: 6, y: 5}]
+    liveCells: [{x: 14, y: 15}, {x: 15, y: 15}, {x: 16, y: 15}]
 };
 
 const glider = {
