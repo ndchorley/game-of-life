@@ -7,6 +7,14 @@ const blinker = {
     liveCells: [{x: 4, y: 5}, {x: 5, y: 5}, {x: 6, y: 5}]
 };
 
+const glider = {
+    sideLength: gridSize,
+    liveCells: [
+        {x: 4, y: 2}, {x: 4, y: 3}, {x: 4, y: 4},
+        {x: 3, y: 4}, {x: 2, y: 3}
+    ]
+}
+
 function drawVerticalLine(context, x) {
     context.moveTo(x, 0)
     context.lineTo(x, gridSideLengthPixels);
@@ -85,28 +93,6 @@ function setUpPattern(initialGrid) {
     fetch(newGridRequest).then(response => null);
 }
 
-function setUpGlider() {
-    clearCanvas();
-    
-    initialGrid = {
-        sideLength: gridSize,
-        liveCells: [
-            {x: 4, y: 2}, {x: 4, y: 3}, {x: 4, y: 4},
-            {x: 3, y: 4}, {x: 2, y: 3}
-        ]
-    }
-    
-    drawGrid(initialGrid);
-
-    newGridRequest =
-        new Request(
-            "http://localhost:8080/new",
-            {method: "POST", body: JSON.stringify(initialGrid)}
-        );
-    
-    fetch(newGridRequest).then(response => null);
-}
-
 drawEmptyGrid();
 
 intervalId = null;
@@ -127,6 +113,6 @@ document.getElementById("pattern")
         if (pattern === "blinker") {
             setUpPattern(blinker);
         } else if (pattern === "glider") {
-            setUpGlider();
+            setUpPattern(glider);
         }
     });
