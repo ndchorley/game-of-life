@@ -62,22 +62,24 @@ function updateCanvas() {
         });
 }
 
-drawEmptyGrid();
+function setUpBlinker() {
+    initialGrid = {
+        sideLength: gridSize,
+        liveCells: [{x: 4, y: 5}, {x: 5, y: 5}, {x: 6, y: 5}]
+    }
+    
+    drawGrid(initialGrid);
 
-initialGrid = {
-    sideLength: gridSize,
-    liveCells: [{x: 4, y: 5}, {x: 5, y: 5}, {x: 6, y: 5}]
+    newGridRequest =
+        new Request(
+            "http://localhost:8080/new",
+            {method: "POST", body: JSON.stringify(initialGrid)}
+        );
+    
+    fetch(newGridRequest).then(response => null);
 }
 
-drawGrid(initialGrid);
-
-newGridRequest =
-    new Request(
-        "http://localhost:8080/new",
-        {method: "POST", body: JSON.stringify(initialGrid)}
-    );
-
-fetch(newGridRequest).then(response => null);
+drawEmptyGrid();
 
 intervalId = null;
 document.getElementById("start")
@@ -88,4 +90,13 @@ document.getElementById("start")
 document.getElementById("stop")
     .addEventListener("click", _ => {
         clearInterval(intervalId);
+    });
+    
+document.getElementById("pattern")
+    .addEventListener("click", event => {
+        pattern = event.target.value;
+        
+        if (pattern === "blinker") {
+            setUpBlinker();
+        }
     });
