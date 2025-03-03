@@ -18,9 +18,9 @@ const glider = {
 const i = {
     sideLength: gridSize,
     liveCells: [
-        {x: 4, y: 3}, {x: 5, y: 3}, {x: 6, y: 3},
-        {x: 5, y: 4}, {x: 5, y: 5}, {x: 5, y: 6},
-        {x: 4, y: 6}, {x: 6, y: 6}
+        {x: 13, y: 13}, {x: 14, y: 13}, {x: 15, y: 13},
+        {x: 14, y: 14}, {x: 14, y: 15}, {x: 14, y: 16},
+        {x: 13, y: 16}, {x: 15, y: 16}
     ]
 };
 
