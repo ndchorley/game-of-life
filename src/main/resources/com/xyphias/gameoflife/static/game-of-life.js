@@ -2,6 +2,11 @@ const gridSideLengthPixels = 500;
 const gridSize = 10;
 const cellSize = gridSideLengthPixels / gridSize;
 
+const blinker = {
+    sideLength: gridSize,
+    liveCells: [{x: 4, y: 5}, {x: 5, y: 5}, {x: 6, y: 5}]
+};
+
 function drawVerticalLine(context, x) {
     context.moveTo(x, 0)
     context.lineTo(x, gridSideLengthPixels);
@@ -66,13 +71,8 @@ function updateCanvas() {
         });
 }
 
-function setUpBlinker() {
+function setUpPattern(initialGrid) {
     clearCanvas();
-    
-    initialGrid = {
-        sideLength: gridSize,
-        liveCells: [{x: 4, y: 5}, {x: 5, y: 5}, {x: 6, y: 5}]
-    }
     
     drawGrid(initialGrid);
 
@@ -125,7 +125,7 @@ document.getElementById("pattern")
         pattern = event.target.value;
         
         if (pattern === "blinker") {
-            setUpBlinker();
+            setUpPattern(blinker);
         } else if (pattern === "glider") {
             setUpGlider();
         }
