@@ -11,6 +11,7 @@
         <select id="pattern">
             <option value="">Select a pattern</option>
             <option value="blinker">Blinker</option>
+            <option value="glider">Glider</option>
         </select>
     </div>
 
