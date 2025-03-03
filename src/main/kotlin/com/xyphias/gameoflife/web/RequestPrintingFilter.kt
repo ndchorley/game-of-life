@@ -9,8 +9,7 @@ class RequestPrintingFilter(
 ) : Filter {
     override fun invoke(next: HttpHandler): HttpHandler = {
         request -> 
-            val line = "${clock.instant()} ${request.method} ${request.uri}"
-            printLine(line)
+            printLine("${clock.instant()} ${request.method} ${request.uri}")
         
             next(request)
     }
