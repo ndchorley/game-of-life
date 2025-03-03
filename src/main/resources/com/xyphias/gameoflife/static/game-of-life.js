@@ -79,7 +79,7 @@ function updateCanvas() {
         );
 
     fetch(nextGridRequest)
-        .then(respose => respose.blob())
+        .then(response => response.blob())
         .then(blob => blob.text())
         .then(gridJson => {
             clearCanvas();
