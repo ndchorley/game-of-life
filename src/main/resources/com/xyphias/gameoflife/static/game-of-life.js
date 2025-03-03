@@ -1,5 +1,5 @@
 const gridSideLengthPixels = 500;
-const gridSize = 10;
+const gridSize = 30;
 const cellSize = gridSideLengthPixels / gridSize;
 
 const blinker = {
