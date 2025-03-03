@@ -40,6 +40,14 @@ function drawGrid(grid) {
         .forEach(coordinates => drawLiveCellAt(coordinates));
 }
 
+function clearCanvas() {
+    canvas = document.getElementById("canvas");
+    context = canvas.getContext("2d");
+    context.clearRect(0, 0, gridSideLengthPixels, gridSideLengthPixels);
+    
+    drawEmptyGrid();
+}
+
 function updateCanvas() {
     nextGridRequest =
         new Request(
@@ -51,11 +59,7 @@ function updateCanvas() {
         .then(respose => respose.blob())
         .then(blob => blob.text())
         .then(gridJson => {
-            canvas = document.getElementById("canvas");
-            context = canvas.getContext("2d");
-            context.clearRect(0, 0, gridSideLengthPixels, gridSideLengthPixels);
-
-            drawEmptyGrid();
+            clearCanvas();
 
             grid = JSON.parse(gridJson);
             drawGrid(grid);
