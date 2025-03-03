@@ -43,7 +43,8 @@ function drawEmptyGrid() {
     context.strokeRect(0, 0, gridSideLengthPixels, gridSideLengthPixels);
 
     context.beginPath();
-    ticks = [50, 100, 150, 200, 250, 300, 350, 400, 450];
+
+    ticks = Array.from({length: gridSize - 1}, (_, i) => (i + 1) * cellSize);
     ticks.forEach(x => drawVerticalLine(context, x));
     ticks.forEach(y => drawHorizontalLine(context, y));
 }
