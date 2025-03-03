@@ -67,6 +67,8 @@ function updateCanvas() {
 }
 
 function setUpBlinker() {
+    clearCanvas();
+    
     initialGrid = {
         sideLength: gridSize,
         liveCells: [{x: 4, y: 5}, {x: 5, y: 5}, {x: 6, y: 5}]
@@ -84,6 +86,8 @@ function setUpBlinker() {
 }
 
 function setUpGlider() {
+    clearCanvas();
+    
     initialGrid = {
         sideLength: gridSize,
         liveCells: [
