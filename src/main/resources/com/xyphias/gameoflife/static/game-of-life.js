@@ -2,26 +2,26 @@ const gridSideLengthPixels = 500;
 const gridSize = 30;
 const cellSize = gridSideLengthPixels / gridSize;
 
-const blinker = {
-    sideLength: gridSize,
-    liveCells: [{x: 14, y: 15}, {x: 15, y: 15}, {x: 16, y: 15}]
-};
-
-const glider = {
-    sideLength: gridSize,
-    liveCells: [
-        {x: 4, y: 2}, {x: 4, y: 3}, {x: 4, y: 4},
-        {x: 3, y: 4}, {x: 2, y: 3}
-    ]
-};
-
-const i = {
-    sideLength: gridSize,
-    liveCells: [
-        {x: 13, y: 13}, {x: 14, y: 13}, {x: 15, y: 13},
-        {x: 14, y: 14}, {x: 14, y: 15}, {x: 14, y: 16}, {x: 14, y: 17},
-        {x: 13, y: 17}, {x: 15, y: 17}
-    ]
+const initialGrids = {
+    blinker: {
+        sideLength: gridSize,
+        liveCells: [{x: 14, y: 15}, {x: 15, y: 15}, {x: 16, y: 15}]
+    },
+    glider: {
+        sideLength: gridSize,
+        liveCells: [
+            {x: 4, y: 2}, {x: 4, y: 3}, {x: 4, y: 4},
+            {x: 3, y: 4}, {x: 2, y: 3}
+        ]
+    },
+    i: {
+        sideLength: gridSize,
+        liveCells: [
+            {x: 13, y: 13}, {x: 14, y: 13}, {x: 15, y: 13},
+            {x: 14, y: 14}, {x: 14, y: 15}, {x: 14, y: 16}, {x: 14, y: 17},
+            {x: 13, y: 17}, {x: 15, y: 17}
+        ]
+    }
 };
 
 function drawVerticalLine(context, x) {
@@ -120,11 +120,7 @@ document.getElementById("pattern")
     .addEventListener("click", event => {
         pattern = event.target.value;
         
-        if (pattern === "blinker") {
-            setUpPattern(blinker);
-        } else if (pattern === "glider") {
-            setUpPattern(glider);
-        } else if (pattern === "i") {
-            setUpPattern(i);
-        }
+        if (pattern === "") return;
+        
+        setUpPattern(initialGrids[pattern]);
     });
