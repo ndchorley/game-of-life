@@ -106,17 +106,20 @@ function setUpPattern(initialGrid) {
 drawEmptyGrid();
 
 intervalId = null;
-document.getElementById("start")
+document
+    .getElementById("start")
     .addEventListener("click", _ => {
         intervalId = setInterval(updateCanvas, 400)
     });
 
-document.getElementById("stop")
+document
+    .getElementById("stop")
     .addEventListener("click", _ => {
         clearInterval(intervalId);
     });
     
-document.getElementById("pattern")
+document
+    .getElementById("pattern")
     .addEventListener("click", event => {
         pattern = event.target.value;
         
