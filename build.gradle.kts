@@ -1,5 +1,7 @@
 plugins {
     kotlin("jvm") version "2.1.10"
+    id("application")
+    id("com.gradleup.shadow") version "8.3.6"
 }
 
 group = "com.xyphias"
@@ -29,4 +31,8 @@ tasks.test {
 
 kotlin {
     jvmToolchain(21)
+}
+
+application {
+    mainClass = "com.xyphias.gameoflife.MainKt"
 }
