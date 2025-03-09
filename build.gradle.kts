@@ -1,5 +1,3 @@
-import com.adarshr.gradle.testlogger.theme.ThemeType
-
 plugins {
     kotlin("jvm") version "2.1.10"
     id("application")
