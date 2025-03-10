@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeAll
 
 class RunningAppTests : GameOfLifeContract {
     companion object {
-        val port = 8080
+        val port = 9000
 
         @BeforeAll
         @JvmStatic
