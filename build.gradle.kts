@@ -19,7 +19,7 @@ dependencies {
     implementation("org.http4k:http4k-server-jetty")
     implementation("org.http4k:http4k-template-handlebars")
     
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.13.4")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:6.0.0")
     testImplementation(platform("org.junit:junit-bom:6.0.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("io.strikt:strikt-core:0.35.1")
